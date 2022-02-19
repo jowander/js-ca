@@ -1,0 +1,96 @@
+/*Global styles*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, green, black);
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: #faea1c;
+    margin: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+img {
+    margin: 50px auto;
+}
+
+/*Index-page*/
+select {
+    font-size: 1.2rem;
+    padding: 1em 1.5em;
+    background-color: #b3982d;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+}
+
+.select-movie {
+    font-size: 30px;
+}
+
+/*Details-page*/
+.movie-details {
+    text-align: center;
+    color: #faea1c;
+}
+
+.movie-name {
+    font-size: 30px;
+    margin: 30px auto;
+}
+
+.movie-score {
+    font-size: 25px;
+}
+
+.error {
+    height: auto;
+    width: 100%;
+    align-items: center;
+    max-width: 60%;
+    margin: auto auto;
+    padding: 20px;
+    font-size: 40px;
+    text-align: center;
+    color: red;
+}
+
+/*Inspierd by w3docs.com Loading spinner*/
+@keyframes loading {
+    0% {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+}
+
+.load {
+    animation: 1000ms linear infinite loading;
+    animation-play-state: inherit;
+    border: solid 5px black;
+    border-bottom-color: red;
+    border-radius: 50%;
+    content: "";
+    margin: 100px auto;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    top: 10%;
+    left: 10%;
+    transform: translate3d(-50%, -50%, 0);
+    will-change: transform;
+}
