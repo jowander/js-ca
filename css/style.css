@@ -1,4 +1,5 @@
 /*Global styles*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Public+Sans:wght@100;300;400&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,6 +7,7 @@
 }
 
 body {
+    font-family: "Montserrat", sans-serif;
     background: linear-gradient(to bottom right, green, black);
 }
 
@@ -22,7 +24,9 @@ a {
 }
 
 img {
-    margin: 50px auto;
+    margin: 25px auto;
+    box-shadow: 20px 15px 30px #000;
+    border-radius: 15px;
 }
 
 /*Index-page*/
@@ -38,22 +42,31 @@ select {
 }
 
 .select-movie {
+    margin: 50px;
+    padding: 10px;
     font-size: 30px;
 }
 
 /*Details-page*/
 .movie-details {
+    display: flex;
+    justify-content: space-evenly;
     text-align: center;
     color: #faea1c;
 }
 
-.movie-name {
+.movie-title {
     font-size: 30px;
     margin: 30px auto;
 }
 
-.movie-score {
+.movie-name {
     font-size: 25px;
+}
+
+.movie-score {
+    margin-bottom: 30px;
+    font-size: 20px;
 }
 
 .error {

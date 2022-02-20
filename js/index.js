@@ -9,8 +9,6 @@ function buildList(event) {
 
     // console.log(event.target.value);
 
-    listContainer.innerHTML = "";
-
     for (let i = 0; i < amount; i++) {
         listContainer.innerHTML = `<a class="select-movie" href="details.html?id=${i}">Click for details</a>`
     }

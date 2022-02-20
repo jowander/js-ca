@@ -1,6 +1,7 @@
 "use strict"
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
+console.log(queryString);
 const id = params.get("id");
 console.log(id);
 
@@ -27,7 +28,7 @@ async function getAnimeDetails() {
                 break;
             }
 
-            movieDetails.innerHTML += `<div><h2 class="movie-name">Movie title: ${animeSeriesDetails[i].title}</h2><img class="movie-img" src="${animeSeriesDetails[i].image_url}"/><h3 class="movie-score">Movie rating: ${animeSeriesDetails[i].score}</h3></div>`;
+            movieDetails.innerHTML += `<div><h2 class="movie-title">Movie title:</h2><p class="movie-name"> ${animeSeriesDetails[i].title}</p><img class="movie-img" src="${animeSeriesDetails[i].image_url}"/><p class="movie-score">Movie rating: ${animeSeriesDetails[i].score}</p></div>`;
         }
     } catch(e) {
         errorMessage.innerHTML = `Du har en feil!` + " " + (e);
