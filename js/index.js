@@ -1,15 +1,34 @@
 "use strict"
-const selecter = document.querySelector("select");
-const listContainer = document.querySelector(".list");
+const apiUrl = "https://api.jikan.moe/v3/search/anime?q=naruto";
 
-selecter.addEventListener("change", buildList);
+const errorMessage = document.querySelector(".error");
+const movieDetails = document.querySelector(".movie-details");
 
-function buildList(event) {
-    const amount = event.target.value;
+async function checkAnimeMovie() {
+    try {
+        const response = await fetch(apiUrl);
+        const jsonResults = await response.json();
 
-    // console.log(event.target.value);
+        // console.log(jsonResults);
 
-    for (let i = 0; i < amount; i++) {
-        listContainer.innerHTML = `<a class="select-movie" href="details.html?id=${i}">Click for details</a>`
+        const animeMovie = jsonResults.results;
+        console.log(animeMovie);
+
+        movieDetails.innerHTML = "";
+
+        for (let i = 0; i < animeMovie.length; i++) {
+
+            if (i === 3) {
+                break;
+            }
+
+            movieDetails.innerHTML += `<div><h2 class="movie-title">Movie</h2><a href="details.html?id=${animeMovie[i].mal_id}"><a href="details.html?id=${animeMovie[i].mal_id}"><img class="movie-img" src="${animeMovie[i].image_url}"/></a></div>`;
+        }
+    } catch(e) {
+        errorMessage.innerHTML = `Du har en feil!` + " " + (e);
+        movieDetails.innerHTML = "";
     }
+    
 }
+
+checkAnimeMovie();

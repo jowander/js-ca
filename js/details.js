@@ -1,39 +1,38 @@
 "use strict"
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
-console.log(queryString);
-const id = params.get("id");
+const id = params.get("id")
 console.log(id);
 
-const apiUrl = "https://api.jikan.moe/v3/search/anime?q=naruto" + id;
-
+const animeDetails = document.querySelector(".anime-details");
 const errorMessage = document.querySelector(".error");
-const movieDetails = document.querySelector(".movie-details");
 
-async function getAnimeDetails() {
+const newApiUrl = "https://api.jikan.moe/v3/search/anime?q=naruto" + id;
+
+async function animeMovieDetails() {
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(newApiUrl);
         const jsonResults = await response.json();
 
-        // console.log(jsonResults);
+        console.log(jsonResults);
 
-        const animeSeriesDetails = jsonResults.results;
-        console.log(animeSeriesDetails);
+        const animeMovieDetails = jsonResults.results;
+        console.log(animeMovieDetails);
 
-        movieDetails.innerHTML = "";
+        animeDetails.innerHTML = "";
 
-        for (let i = 0; i < animeSeriesDetails.length; i++) {
+        for (let i = 0; i < animeMovieDetails.length; i++) {
 
-            if (i === 3) {
-                break;
-            }
+            
+            animeDetails.innerHTML += `<div><h2 class="movie-title">Movie title:</h2><p class="movie-name"> ${animeMovieDetails[i].title}</p><img class="movie-img" src="${animeMovieDetails[i].image_url}"/><p class="movie-score">Movie rating: ${animeMovieDetails[i].score}</p></div>`;
+        
 
-            movieDetails.innerHTML += `<div><h2 class="movie-title">Movie title:</h2><p class="movie-name"> ${animeSeriesDetails[i].title}</p><img class="movie-img" src="${animeSeriesDetails[i].image_url}"/><p class="movie-score">Movie rating: ${animeSeriesDetails[i].score}</p></div>`;
+            
         }
-    } catch(e) {
-        errorMessage.innerHTML = `Du har en feil!` + " " + (e);
-    }
-    
-}
 
-getAnimeDetails();
+    } catch (e) {
+        errorMessage.innerHTML = `Du har en feil!` + " " + (e);
+        animeDetails.innerHTML = "";
+    }
+}
+animeMovieDetails()

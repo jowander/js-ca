@@ -1,5 +1,5 @@
 /*Global styles*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Public+Sans:wght@100;300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Public+Sans:wght@100;300;400&display=swap");
 * {
     box-sizing: border-box;
     margin: 0;
@@ -37,6 +37,12 @@ select {
     color: #fff;
 }
 
+.movie {
+    height: auto;
+    width: 200px;
+    margin: 20px auto;
+}
+
 .container {
     text-align: center;
 }
@@ -47,12 +53,16 @@ select {
     font-size: 30px;
 }
 
-/*Details-page*/
 .movie-details {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     color: #faea1c;
+}
+/*Details-page*/
+.anime-details {
+    color: #fff;
+    text-align: center;
 }
 
 .movie-title {
