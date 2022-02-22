@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #333;
+}
+
+.first-name {
+    background-color: aliceblue;
+    border-radius: 20px;
+    width: 500px;
+    height: auto;
+    margin: 20px auto;
+}
+
+#header {
+    text-align: center;
+    color: aliceblue;
+}
+
+label {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+}
+
+input {
+    font-size: 25px;
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+button {
+    display: block;
+    font-size: 20px;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.error {
+    /*display: none;*/
+    color: red;
+}
