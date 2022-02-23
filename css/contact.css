@@ -42,6 +42,6 @@ button {
 }
 
 .error {
-    /*display: none;*/
+    display: none;
     color: red;
 }

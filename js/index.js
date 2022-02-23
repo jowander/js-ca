@@ -1,5 +1,5 @@
 "use strict"
-const apiUrl = "https://api.jikan.moe/v3/search/anime?q=naruto";
+const apiUrl = "https://api.jikan.moe/v3/search/anime?q=hellsing";
 
 const errorMessage = document.querySelector(".error");
 const movieDetails = document.querySelector(".movie-details");
