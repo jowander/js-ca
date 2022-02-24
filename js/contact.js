@@ -1,16 +1,61 @@
 "use strict"
 const form = document.querySelector(".form-validation");
-const firstNameInput = document.querySelector(".input-first-name");
+const fullNameInput = document.querySelector(".input-full-name");
+const fullNameError = document.querySelector(".full-name-error");
+const subjectInput = document.querySelector(".input-subject");
+const subjectError = document.querySelector(".subject-error");
+const emailInput = document.querySelector(".input-email");
+const emailError = document.querySelector(".email-error");
+const addressInput = document.querySelector(".input-address");
+const addressError = document.querySelector(".address-error");
 const submitButton = document.querySelector("button");
-const errorMessage = document.querySelector(".error");
 
 
 function validateForm(event){
     event.preventDefault();
-    if (firstNameInput.value.trim().length > 0) {
-        errorMessage.style.display = "none";
+    if (fullNameInput.value.trim() > 0) {
+        fullNameError.style.display = "none";
     } else {
-        errorMessage.style.display = "block";
+        fullNameError.style.display = "block";
+    }
+
+    if (subjectInput.value.trim() >= 10) {
+        subjectError.style.display = "none";
+    } else {
+        subjectError.style.display = "block";
+    }
+
+    if (emailInput.value) {
+        emailError.style.display = "none";
+    } else {
+        emailError.style.display = "block";
+    }
+
+    if (addressInput.value.trim() >= 5) {
+        addressError.style.display = "none";
+    } else {
+        addressError.style.display = "block";
     }
 }
 form.addEventListener("submit", validateForm)
+
+
+// function checkLength (value, len) {
+//     if (value.trim().length > len) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// function fullNameIsLetters(name) {
+//     const regEx = /^([a-zA-Z ]+$/;
+//     const nameMatch = regEx.test(name.value);
+//     return nameMatch;
+// }
+
+function checkEmail(email) {
+    const regEx = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+    const emailMatch = regEx.test(email);
+    return emailMatch;
+}

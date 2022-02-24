@@ -1,5 +1,5 @@
 "use strict"
-const apiUrl = "https://api.jikan.moe/v3/search/anime?q=hellsing";
+const apiUrl = "https://api.jikan.moe/v3/search/anime?q=naruto";
 
 const errorMessage = document.querySelector(".error");
 const movieDetails = document.querySelector(".movie-details");
@@ -9,10 +9,7 @@ async function checkAnimeMovie() {
         const response = await fetch(apiUrl);
         const jsonResults = await response.json();
 
-        // console.log(jsonResults);
-
         const animeMovie = jsonResults.results;
-        console.log(animeMovie);
 
         movieDetails.innerHTML = "";
 
@@ -22,7 +19,7 @@ async function checkAnimeMovie() {
                 break;
             }
 
-            movieDetails.innerHTML += `<div><h2 class="movie-title">Movie</h2><a href="details.html?id=${animeMovie[i].mal_id}"><img class="movie-img" src="${animeMovie[i].image_url}"/></a></div>`;
+            movieDetails.innerHTML += `<div><h2 class="movie-title"><a href="html?id=${animeMovie[i].mal_id}">${animeMovie[i].title}</a></h2><a href="details.html?id=${animeMovie[i].mal_id}"><img class="movie-img" src="${animeMovie[i].image_url}"/></a></div>`;
         }
     } catch(e) {
         errorMessage.innerHTML = `Du har en feil!` + " " + (e);

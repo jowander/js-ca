@@ -11,10 +11,22 @@
     <h1 id="header">Contact</h1>
 
     <form class="form-validation" action="">
-        <div class="first-name">
-            <label for="name">First name
-                <input class="input-first-name" type="text" name="name">
-                <p class="error">Name is requierd</p>
+        <div class="full-name">
+            <label for="name">Full name
+                <input class="input-full-name" type="text" name="name">
+                <p class="full-name-error error">Name is requierd</p>
+            </label>
+            <label for="subject">Subject
+                <input class="input-subject" type="text" name="subject">
+                <p class="subject-error error">Subject must be 10 characters</p>
+            </label>
+            <label for="email">Email
+                <input class="input-email" type="email" name="email">
+                <p class="email-error error">Format like email</p>
+            </label>
+            <label for="address">Address
+                <input class="input-address" type="text" name="address">
+                <p class="adress-error error">Please enter address</p>
             </label>
             <button>Submit</button>
         </div>

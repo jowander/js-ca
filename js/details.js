@@ -2,7 +2,6 @@
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id")
-console.log(id);
 
 const animeDetails = document.querySelector(".anime-details");
 const errorMessage = document.querySelector(".error");
@@ -17,10 +16,9 @@ async function animeMovieDetails() {
 
         console.log(jsonResults);
 
-        // const animeMovieDetails = jsonResults.results;
-        // console.log(animeMovieDetails);
+        const animeMovieDetails = jsonResults.data;
 
-        animeDetails.innerHTML = `<div><h2 class="movie-title">Movie title:</h2><p class="movie-name"> ${jsonResults.data.title}</p><img class="movie-img" src="${jsonResults.data.images.jpg.image_url}"/><p class="movie-score">Movie rating: ${jsonResults.data.score}</p><p class="movie-score">Play time: ${jsonResults.data.duration}</p></div>`;
+        animeDetails.innerHTML = `<div><h2 class="movie-title">English movie title:</h2><p class="movie-name"> ${animeMovieDetails.title}</p><h2 class="movie-title">Japanese movie title:</h2><p class="movie-name"> ${animeMovieDetails.title_japanese}</p><img class="movie-img" src="${animeMovieDetails.images.jpg.image_url}"/><p class="movie-score">Movie rating: ${animeMovieDetails.score}</p><p class="movie-score">Duration: ${animeMovieDetails.duration}</p></div>`;
 
         // for (let i = 0; i < jsonResults.results.length; i++) {
         //     if( jsonResults.results[i].mal_id === parseInt(id)) {
