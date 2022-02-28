@@ -19,7 +19,7 @@ async function checkAnimeMovie() {
                 break;
             }
 
-            movieDetails.innerHTML += `<div><h2 class="movie-title">${animeMovie[i].title}</h2><a href="details.html?id=${animeMovie[i].mal_id}"><img class="movie-img" src="${animeMovie[i].image_url}"/></a></div>`;
+            movieDetails.innerHTML += `<div><h2 class="movie-title"><a href="details.html?id=${animeMovie[i].mal_id}">${animeMovie[i].title}</a></h2><a href="details.html?id=${animeMovie[i].mal_id}"><img class="movie-img" src="${animeMovie[i].image_url}"/></a></div>`;
         }
     } catch(e) {
         errorMessage.innerHTML = `Du har en feil!` + " " + (e);
