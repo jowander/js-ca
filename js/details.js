@@ -13,6 +13,10 @@ async function animeMovieDetails() {
         const response = await fetch(newApiUrl);
         const jsonResults = await response.json();
 
+        const animeMovieDetails = jsonResults.data
+
+        animeDetails.innerHTML = "";
+
         console.log(jsonResults);
 
         animeDetails.innerHTML = `<div><h2 class="movie-title">English movie title:</h2><p class="movie-name"> ${animeMovieDetails.title}</p><h2 class="movie-title">Japanese movie title:</h2><p class="movie-name"> ${animeMovieDetails.title_japanese}</p><img class="movie-img" src="${animeMovieDetails.images.jpg.image_url}"/><p class="movie-score">Movie rating: ${animeMovieDetails.score}</p><p class="movie-score">Duration: ${animeMovieDetails.duration}</p></div>`;
