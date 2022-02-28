@@ -1,58 +1,65 @@
 "use strict"
-const form = document.querySelector(".form-validation");
+const form = document.querySelector("#form-validation");
+
 const fullNameInput = document.querySelector(".input-full-name");
 const fullNameError = document.querySelector(".full-name-error");
+
 const subjectInput = document.querySelector(".input-subject");
 const subjectError = document.querySelector(".subject-error");
-const emailInput = document.querySelector(".input-email");
-const emailError = document.querySelector(".email-error");
+
 const addressInput = document.querySelector(".input-address");
 const addressError = document.querySelector(".address-error");
-const submitButton = document.querySelector("button");
 
+const emailInput = document.querySelector(".input-email");
+const emailError = document.querySelector(".email-error");
 
-function validateForm(event){
+const thankYouMessage = document.querySelector(".thank-you");
+
+function formValidate() {
     event.preventDefault();
-    if (fullNameInput.value.trim() > 0) {
+
+    if (checkLength(fullNameInput.value, 0)) {
         fullNameError.style.display = "none";
     } else {
         fullNameError.style.display = "block";
+        fullNameInput.classList.add("invalid");
     }
 
-    if (subjectInput.value.trim() >= 10) {
+    if (checkLength(subjectInput.value, 10)) {
         subjectError.style.display = "none";
     } else {
         subjectError.style.display = "block";
-    }
+        subjectInput.classList.add("invalid");
+        }
 
     if (emailInput.value) {
         emailError.style.display = "none";
     } else {
         emailError.style.display = "block";
+        emailInput.classList.add("invalid");
     }
 
-    if (addressInput.value.trim() >= 5) {
+    if (checkLength(addressInput.value, 25)) {
         addressError.style.display = "none";
     } else {
         addressError.style.display = "block";
+        addressInput.classList.add("invalid");
     }
 }
-form.addEventListener("submit", validateForm)
+form.addEventListener("submit", formValidate = () => {
+    if (formValidate) {
+        form.remove();
+        thankYouMessage.style.display = "block";
+    }
+});
 
-
-// function checkLength (value, len) {
-//     if (value.trim().length > len) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-
-// function fullNameIsLetters(name) {
-//     const regEx = /^([a-zA-Z ]+$/;
-//     const nameMatch = regEx.test(name.value);
-//     return nameMatch;
-// }
+function checkLength(value, len){
+    if (value.trim().length > len) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function checkEmail(email) {
     const regEx = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
